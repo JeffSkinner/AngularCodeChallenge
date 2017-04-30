@@ -1,8 +1,8 @@
 module.exports = function(config) {
 
-  var appBase    = 'app/';      // transpiled app JS and map files
-  var appSrcBase = 'app/';      // app source TS files
-  var appAssets  = 'base/app/'; // component assets fetched by Angular's compiler
+  var appBase    = 'dist/';      // transpiled app JS and map files
+  var appSrcBase = 'dist/';      // app source TS files
+  var appAssets  = 'base/dist/'; // component assets fetched by Angular's compiler
 
   // Testing helpers (optional) are conventionally in a folder called `testing`
   var testingBase    = 'testing/'; // transpiled test JS and map files
@@ -60,6 +60,8 @@ module.exports = function(config) {
       { pattern: 'systemjs.config.js', included: false, watched: false },
       { pattern: 'systemjs.config.extras.js', included: false, watched: false },
       'karma-test-shim.js', // optionally extend SystemJS mapping e.g., with barrels
+
+       { pattern: 'node_modules/@ng-bootstrap/**/*.js', included: false, watched: false },
 
       // transpiled application & spec code paths loaded via module imports
       { pattern: appBase + '**/*.js', included: false, watched: true },

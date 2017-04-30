@@ -11,19 +11,14 @@ import { Observable } from 'rxjs/Observable';
 
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
-import { AppComponent }  from './app.component';
-import { AppRoutingModule } from './app-routing.module';
-import { DashboardComponent }  from './dashboard.component/dashboard.component';
-import { RepoService } from './repo-info/repo.service'
-import { RepoSearchComponent } from './repo-info/repo-search.component'
-import { RepoListComponent } from './repo-info/repo-list.component'
-import { CommitListComponent } from './repo-info/commit-list.component'
+import { RepoService } from './repo.service'
+import { RepoListComponent } from './repo-list.component'
 
-describe('AppComponent', function () {
-  let de: DebugElement;
-  let comp: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
 
+describe('RepoListComponent', function () {
+
+  let comp: RepoListComponent;
+  let fixture: ComponentFixture<RepoListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -34,33 +29,19 @@ describe('AppComponent', function () {
         RouterTestingModule,
         NgbModule.forRoot()
       ],
+      providers: [RepoService],
       declarations: [
-        AppComponent,
-        DashboardComponent,
-    RepoSearchComponent,
-    RepoListComponent,
-    CommitListComponent
+    RepoListComponent
       ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AppComponent);
+    fixture = TestBed.createComponent(RepoListComponent);
     comp = fixture.componentInstance;
-    de = fixture.debugElement.query(By.css('h1'));
   });
-
-  
 
   it('should create component', () => expect(comp).toBeDefined() );
 
-  it('should have expected "Repository Finder" heading', () => {
-    TestBed.compileComponents;
-    fixture.detectChanges();
-    const h1 = de.nativeElement;
-
-    expect(h1.innerText).toEqual('Repository Finder');
-    
-  });
 });

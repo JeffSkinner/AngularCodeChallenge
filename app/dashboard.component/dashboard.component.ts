@@ -1,9 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   moduleId: module.id.replace("/dist/", "/app/"),
   selector: 'dashboard',
-  templateUrl: 'dashboard.component.html',
-  styleUrls: [ 'dashboard.component.css' ]
+  template: `
+  <div>
+  <repo-search></repo-search>
+  <repo-list></repo-list>
+</div>
+  `
 })
 export class DashboardComponent { }
